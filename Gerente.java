@@ -1,5 +1,5 @@
-package com.mycompany.proyectopoo;
-import java.util.*;
+package com.mycompany.Ducknology;
+import java.util.Scanner;
 
 public class Gerente {
 

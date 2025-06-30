@@ -2,36 +2,53 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.proyectopoo;
-import java.util.*;
+package com.mycompany.Ducknology;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author MarioPrz && TeresaCoz
  */
-public class Inventario extends Producto{
-    
-   public static List<Inventario> inventario=new ArrayList<>();
-    public Inventario(String id, String nombre, String marca, String gamma, boolean stock) {
-        super(id, nombre, marca, gamma, stock);
+class Inventario {
+    private List<Producto> productos = new ArrayList<>();
+
+    public void cargarDesdeArchivo(String ruta) {
+        productos = GestorInventario.leerProductos(ruta);
     }
-    
-    public static void agregarProducto(String id, String nombre, String marca, String gamma, double precio){
-            
+
+    public void guardarCambios(String ruta) {
+        GestorInventario.guardarProductos(productos, ruta);
     }
-    public static void registro(String id){
-        
+
+    public void mostrarInventario() {
+        for (Producto p : productos) {
+            System.out.println(p.toCSV());
+        }
     }
-    public static void buscarProducto(){
-        
+
+    public void agregarProducto(Producto p) {
+        productos.add(p);
     }
-    public static void eliminarProducto(){
-    
+
+    public Producto buscarPorId(String id) {
+        for (Producto p : productos) {
+            if (p.getId().equals(id)) {
+                return p;
+            }
+        }
+        return null;
     }
-    public static void imprimirInventario(){
-        
+
+    public boolean actualizarStock(String id, int cantidadVendida) {
+        Producto p = buscarPorId(id);
+        if (p != null && p.getStock() >= cantidadVendida) {
+            p.setStock(p.getStock() - cantidadVendida);
+            return true;
+        }
+        return false;
     }
-    public static void actualizarProducto(){
-        
+
+    public List<Producto> getProductos() {
+        return productos;
     }
-  
 }

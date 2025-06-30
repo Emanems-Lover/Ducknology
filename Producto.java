@@ -2,72 +2,53 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.proyectopoo;
-import java.util.*;
+package com.mycompany.Ducknology;
 
 /**
  *
  * @author MarioPrz
  */
-public class Producto {
-    //atributos 23/06/2023
-    private String id;
-    private String nombre;
-    private String marca;
-    private String gamma;
-    private boolean stock;
-    private String popularidad;
-   
-    //constructor 23/06/2023
-    public Producto(String id, String nombre, String marca, String gamma, boolean stock) {
+public abstract class Producto {
+    protected String id;
+    protected String nombre;
+    protected double precio;
+    protected int stock;
+
+    public Producto(String id, String nombre, double precio, int stock) {
         this.id = id;
         this.nombre = nombre;
-        this.marca = marca;
-        this.gamma = gamma;
-        this.stock = stock; 
-    }
-    
-    
-    //getters y setters 23/06/2023 00:00:01
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getGamma() {
-        return gamma;
-    }
-
-    public void setGamma(String gamma) {
-        this.gamma = gamma;
-    }
-
-    public boolean isStock() {
-        return stock;
-    }
-
-    public void setStock(boolean stock) {
+        this.precio = precio;
         this.stock = stock;
     }
 
+    public String getId() { return id; }
+    public String getNombre() { return nombre; }
+    public double getPrecio() { return precio; }
+    public int getStock() { return stock; }
+    public void setStock(int stock) { this.stock = stock; }
+
+    public abstract String toCSV();
+
+    public static Producto fromCSV(String linea) {
+        String[] partes = linea.split(",");
+        if (partes.length < 5) {
+            System.out.println("Línea mal formada: " + linea);
+            return null;
+        }
+
+        String tipo = partes[0].trim();
+        String id = partes[1].trim();
+        String nombre = partes[2].trim();
+        double precio = Double.parseDouble(partes[3].trim());
+        int stock = Integer.parseInt(partes[4].trim());
+
+        if (tipo.equalsIgnoreCase("Computadora")) {
+            return new Computadora(id, nombre, precio, stock);
+        } else if (tipo.equalsIgnoreCase("Componente")) {
+            return new Componente(id, nombre, precio, stock);
+        } else {
+            System.out.println("Tipo no reconocido: " + tipo);
+            return null;
+        }
+    }
 }

@@ -2,32 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.proyectopoo;
-import java.util.*;
+package com.mycompany.Ducknology;
+import java.util.List;
 /**
  *
  * @author MarioPrz & TeresaCoz
  */
 public class Ducknology {
-    
-   
+
+        //Prueba gestion de inventario
     public static void main(String[] args) {
-        Scanner pato=new Scanner(System.in);  
-        System.out.println("Bienvenido a Ducknology, la tienda de Pato componentes y pato computadoras");
+        // Paso 1: Cargar productos ya existentes
+        List<Producto> productos = GestorInventario.leerProductos("productos.csv");
 
-        System.out.println("Que tipo de usuario eres?");
+        // Paso 2: Crear un nuevo producto
+        Computadora nuevaPc = new Computadora("PC03", "Lenovo Legion", 18000.0, 4);
 
+        // Paso 3: Agregarlo al arreglo
+        productos.add(nuevaPc);
 
-        Gerente max=new Gerente("Max", 1, true,"mucha en comer ratas" );
+        // Paso 4: Guardar nuevamente todo en el archivo
+        GestorInventario.guardarProductos(productos, "productos.csv");
 
-        
-
-        
-
-
-        
-
-
-
+        System.out.println("Producto agregado exitosamente.");
     }
 }
+
+
