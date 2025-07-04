@@ -1,4 +1,4 @@
-package com.mycompany.Ducknology;
+package com.mycompany.Ducknology.Usuarios;
 
 /**
  *
@@ -24,7 +24,9 @@ public class Usuario {
         this.contraseña = contraseña;
     }
     // Getters and setters
-
+    public String toCSV() {
+    return String.join(",", id, nombre, email, telefono, direccion, contraseña);
+}
     public String getId() {
         return id;
     }

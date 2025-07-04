@@ -1,7 +1,10 @@
-package com.mycompany.Ducknology;
+package com.mycompany.Ducknology.ventas;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.mycompany.Ducknology.Productos.Inventario;
+import com.mycompany.Ducknology.Productos.Producto;
 
 public class Venta {
     private List<DetalleVenta> detalles = new ArrayList<>();
@@ -39,5 +42,29 @@ public class Venta {
             System.out.println(d);
         }
         System.out.println("TOTAL: $" + calcularTotal());
+    }
+
+    public boolean tieneProductos() {
+        return !detalles.isEmpty();
+    }
+
+    public String obtenerDetallesParaCSV() {
+        StringBuilder sb = new StringBuilder();
+        for (DetalleVenta item : detalles) {
+            if (sb.length() > 0) {
+                sb.append(";");
+            }
+            Producto p = item.getProducto();
+            sb.append(p.getId())
+              .append("-")
+              .append(p.getNombre())
+              .append("x")
+              .append(item.getCantidad());
+        }
+        return sb.toString();
+    }
+
+    public List<DetalleVenta> getDetalles() {
+        return detalles;
     }
 }

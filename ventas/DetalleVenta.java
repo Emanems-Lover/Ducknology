@@ -1,6 +1,6 @@
-package com.mycompany.Ducknology;
+package com.mycompany.Ducknology.ventas;
 
-
+import com.mycompany.Ducknology.Productos.Producto;
 
 public class DetalleVenta {
     private Producto producto;

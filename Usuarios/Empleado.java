@@ -1,4 +1,4 @@
-package com.mycompany.Ducknology;
+package com.mycompany.Ducknology.Usuarios;
 
 /**
  *

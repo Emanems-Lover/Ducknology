@@ -1,4 +1,5 @@
-package com.mycompany.Ducknology;
+package com.mycompany.Ducknology.Usuarios;
+
 // pato_coder 10:48 3/07/2025
 public class Gerente extends Usuario {
     private boolean chillon=true;

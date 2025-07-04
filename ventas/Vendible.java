@@ -1,4 +1,4 @@
-package com.mycompany.Ducknology;
+package com.mycompany.Ducknology.ventas;
 
 public interface Vendible {
     double getPrecio();
