@@ -1,23 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.Ducknology;
+
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author MarioPrz && TeresaCoz
- */
-class Inventario {
+
+public class Inventario {
     private List<Producto> productos = new ArrayList<>();
 
     public void cargarDesdeArchivo(String ruta) {
-        productos = GestorInventario.leerProductos(ruta);
+        productos = GestorVentas.leerProductos(ruta);
     }
 
     public void guardarCambios(String ruta) {
-        GestorInventario.guardarProductos(productos, ruta);
+        GestorVentas.guardarProductos(productos, ruta);
     }
 
     public void mostrarInventario() {

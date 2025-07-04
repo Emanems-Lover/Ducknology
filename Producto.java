@@ -8,7 +8,7 @@ package com.mycompany.Ducknology;
  *
  * @author MarioPrz
  */
-public abstract class Producto {
+public abstract class Producto implements Vendible {
     protected String id;
     protected String nombre;
     protected double precio;

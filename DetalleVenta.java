@@ -1,37 +1,30 @@
 package com.mycompany.Ducknology;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author pato_coder 25/06/25 6:58
- */
+
+
 public class DetalleVenta {
-    //atributos
-    private int cantidad ;
-    private double subtotal;
-    
-    public void calcularSubtotal(){
-        
+    private Producto producto;
+    private int cantidad;
+
+    public DetalleVenta(Producto producto, int cantidad) {
+        this.producto = producto;
+        this.cantidad = cantidad;
+    }
+
+    public Producto getProducto() {
+        return producto;
     }
 
     public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
     public double getSubtotal() {
-        return subtotal;
+        return producto.getPrecio() * cantidad;
     }
 
-    public void setSubtotal(double subtotal) {
-        this.subtotal = subtotal;
+    @Override
+    public String toString() {
+        return producto.getNombre() + " x" + cantidad + " = $" + getSubtotal();
     }
-    
-    
 }

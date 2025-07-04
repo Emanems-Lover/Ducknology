@@ -1,55 +1,67 @@
 package com.mycompany.Ducknology;
-import java.util.Scanner;
+// pato_coder 10:48 3/07/2025
+public class Gerente extends Usuario {
+    private boolean chillon=true;
+    private boolean lagañas=true;
+    private String  estado="Activo";
+    
+    public Gerente(String id, String nombre, String email, String telefono, String direccion, String contraseña ,boolean chillon, boolean lagañas, String estado) {
+        super(id, nombre, email, telefono, direccion, contraseña);
+        this.chillon = chillon;
+        this.lagañas = lagañas;
+        this.estado = estado;
 
-public class Gerente {
-
-    Scanner pato=new Scanner(System.in);
-    private String nombre;
-    private String experiencia;
-    private int edad;
-    private Boolean esExigente;
-
-    public Gerente(String nombre , int edad, Boolean esExigente, String experiencia) {
-        this.nombre=nombre;
-        this.edad = edad;
-        this.esExigente = esExigente;
-        this.experiencia = experiencia;
     }
-    String gerente=("Gato naranja");
-
-    public void mostrarHumor(){
-        System.out.println("gato esta de malas");
-    }
-
-    public String getNombre() {
-        return nombre;
+    public void quitarLagañas(){
+        if(lagañas){
+            lagañas = false;
+            System.out.println("se quitaron lagañas");
+        }else
+            System.out.println("ya no tiene lagañas");
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void gritar(){
+        if(chillon)
+            System.out.println("¡A trabajar esclavos!");
+        else
+            System.out.println("ta vamonos de aqui!!!");
     }
 
-    public String getExperiencia() {
-        return experiencia;
+    public void hora(String hora){
+        if(hora.equalsIgnoreCase("12:00am")){
+            System.out.println("Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau,Miau");
+        }else if(hora.equalsIgnoreCase("3:00am")){
+            System.out.println("gato se va del trabajo a pelearse al techo con otros gatos");
+        }
+        else if(hora.equalsIgnoreCase("6:00am")){
+            System.out.println("gato muerde al usuario");
+    }
+}
+    // Getters and Setters
+
+    public boolean isChillon() {
+        return chillon;
     }
 
-    public void setExperiencia(String experiencia) {
-        this.experiencia = experiencia;
+    public void setChillon(boolean chillon) {
+        this.chillon = chillon;
     }
 
-    public int getEdad() {
-        return edad;
+    public boolean isLagañas() {
+        return lagañas;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setLagañas(boolean lagañas) {
+        this.lagañas = lagañas;
     }
 
-    public Boolean getEsExigente() {
-        return esExigente;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setEsExigente(Boolean esExigente) {
-        this.esExigente = esExigente;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
+
+
 }
