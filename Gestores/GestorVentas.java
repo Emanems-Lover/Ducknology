@@ -10,7 +10,7 @@ import java.util.List;
 import com.mycompany.Ducknology.Productos.Producto;
 
 public class GestorVentas {
-
+// String ruta="src/Data/productos.csv"; // Removed or comment out, as 'ruta' is passed as a parameter
     public static List<Producto> leerProductos(String ruta) {
         List<Producto> productos = new ArrayList<>();
         BufferedReader br = null;
